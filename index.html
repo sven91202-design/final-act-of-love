@@ -6,15 +6,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>My Final Act of Love</title>
-
 <style>
+
 body{
     margin:0;
     background:#000;
     color:white;
-    font-family:Georgia, serif;
-    overflow-x:hidden;
 }
+
+.container{
+    max-width:800px;
+    margin:auto;
+}
+
+.music-btn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    background:rgba(0,0,0,0.5);
+    color:white;
+    border:1px solid rgba(255,255,255,0.3);
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    backdrop-filter:blur(4px);
+    z-index:1000;
+}
+
+.music-btn:hover{
+    background:rgba(255,255,255,0.1);
+}
+
+</style>
 
 .rain{
     position:fixed;
