@@ -1,99 +1,126 @@
 <!DOCTYPE html>
 
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>My Final Act of Love</title>
+
 <style>
 
-body{
+*{
     margin:0;
-    background:#000;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:linear-gradient(
+        to bottom,
+        #050505,
+        #0f0f15,
+        #050505
+    );
     color:white;
+    font-family:Georgia, serif;
+    overflow-x:hidden;
+    min-height:100vh;
+}
+
+#rain{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
 }
 
 .container{
-    max-width:800px;
+    max-width:850px;
     margin:auto;
+    padding:100px 30px;
+    text-align:center;
+    line-height:2;
+    font-size:1.25rem;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,.1);
+
+    animation:fadeIn 3s ease;
+}
+
+h1{
+    font-size:3rem;
+    margin-bottom:60px;
+    font-weight:normal;
+    letter-spacing:2px;
+}
+
+p{
+    margin-bottom:35px;
+}
+
+.final-line{
+    margin-top:70px;
+    font-size:1.7rem;
+    font-style:italic;
 }
 
 .music-btn{
     position:fixed;
     top:20px;
     right:20px;
-    background:rgba(0,0,0,0.5);
+
+    background:rgba(255,255,255,0.08);
     color:white;
-    border:1px solid rgba(255,255,255,0.3);
-    padding:10px 16px;
-    border-radius:8px;
+
+    border:1px solid rgba(255,255,255,0.25);
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
     cursor:pointer;
-    backdrop-filter:blur(4px);
-    z-index:1000;
+
+    backdrop-filter:blur(5px);
+
+    z-index:999;
 }
 
 .music-btn:hover{
-    background:rgba(255,255,255,0.1);
+    background:rgba(255,255,255,0.15);
 }
 
-</style>
-
-.rain{
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:url('https://i.imgur.com/NM8bL4F.gif');
-    background-size:cover;
-    opacity:.25;
-    pointer-events:none;
-}
-
-.container{
-    max-width:800px;
-    margin:auto;
-    padding:100px 30px;
-    text-align:center;
-    line-height:2;
-    font-size:1.3rem;
-    animation:fadein 4s ease;
-}
-
-h1{
-    margin-bottom:60px;
-    font-weight:normal;
-}
-
-@keyframes fadein{
+@keyframes fadeIn{
     from{
         opacity:0;
         transform:translateY(20px);
     }
+
     to{
         opacity:1;
         transform:translateY(0);
     }
 }
+
 </style>
 
 </head>
 
 <body>
 
-<div class="rain"></div>
+<canvas id="rain"></canvas>
 
-<audio controls autoplay loop style="position:fixed;bottom:20px;left:20px;opacity:.5;">
-<source src="piano.mp3" type="audio/mpeg">
-</audio>
-
-<body>
-
-<button onclick="document.getElementById('music').play()" class="music-btn">
-🎹 Play Music
-</button>
+<button
+class="music-btn"
+onclick="document.getElementById('music').play()">
+🎹 Play Piano </button>
 
 <audio id="music" loop>
-    <source src="piano.mp3" type="audio/mpeg">
+<source src="piano.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
@@ -102,45 +129,113 @@ h1{
 
 <p>
 And as my final act of love, I will let you become a memory.
-<br><br>
+</p>
 
+<p>
 Not the kind that fades with time, but the kind that lingers in quiet places—between unfinished sentences, in songs I can no longer listen to, in the space beside me where I once imagined you would stay.
+</p>
 
-<br><br>
-
+<p>
 I will stop reaching for your hand in futures that were never promised to me. I will stop building homes out of words you never meant to keep. I will stop waiting at the shore of a sea that was never coming back for me.
+</p>
 
-<br><br>
-
+<p>
 You were not just someone I loved. You were the person I whispered every dream to when the world was asleep. The name my heart learned before it learned caution. The beautiful mistake I would make a thousand times if it meant hearing your laugh one more time.
+</p>
 
-<br><br>
-
+<p>
 And that is the tragedy of it all.
+</p>
 
-<br><br>
-
+<p>
 I do not leave because I love you less.
+</p>
 
-<br><br>
-
+<p>
 I leave because I love you more than I can survive.
+</p>
 
-<br><br>
+<p>
+Because every day I stay, I lose another piece of myself trying to hold on to someone whose hands are already reaching elsewhere. Because every memory of you feels like a flower pressed between the pages of a book—beautiful, dead, and impossible to bring back to life.
+</p>
 
-Because every day I stay, I lose another piece of myself trying to hold on to someone whose hands are already reaching elsewhere.
-
-<br><br>
-
+<p>
 So this is my goodbye.
+</p>
 
-<br><br>
+<p>
+I will carry the weight of you for years, I know I will. I will search for your eyes in crowded rooms and hear your voice in people who sound nothing like you. There will be nights when I will miss you so violently that it feels as though my heart is mourning someone who is still alive.
+</p>
 
-My final act of love is learning how to live without you.
+<p>
+But I will love you one last time by setting you free from my hopes, from my waiting, from the version of you that only ever existed in my dreams.
+</p>
 
+<p>
+And if one day you think of me, I hope it hurts just enough for you to remember that there was once a person who would have chosen you in every lifetime, every universe, every ending.
+</p>
+
+<p class="final-line">
+But in this one—<br><br>
+my final act of love is learning how to live without you.
 </p>
 
 </div>
+
+<script>
+
+const canvas = document.getElementById("rain");
+const ctx = canvas.getContext("2d");
+
+function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+
+resize();
+
+const rainDrops = [];
+
+for(let i=0;i<450;i++){
+    rainDrops.push({
+        x:Math.random()*window.innerWidth,
+        y:Math.random()*window.innerHeight,
+        l:Math.random()*20+10,
+        s:Math.random()*6+4
+    });
+}
+
+function drawRain(){
+
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    ctx.strokeStyle="rgba(180,200,255,.25)";
+    ctx.lineWidth=1;
+
+    rainDrops.forEach(drop=>{
+
+        ctx.beginPath();
+        ctx.moveTo(drop.x,drop.y);
+        ctx.lineTo(drop.x-2,drop.y+drop.l);
+        ctx.stroke();
+
+        drop.y += drop.s;
+
+        if(drop.y > canvas.height){
+            drop.y = -20;
+            drop.x = Math.random()*canvas.width;
+        }
+
+    });
+
+    requestAnimationFrame(drawRain);
+}
+
+drawRain();
+
+window.addEventListener("resize",resize);
+
+</script>
 
 </body>
 </html>
